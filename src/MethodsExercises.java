@@ -14,6 +14,7 @@ public class MethodsExercises {
         System.out.printf("%d - %d = " + subtract(num1, num2) + "%n", num1, num2);
         System.out.printf("%d * %d = " + multiply(num1, num2) + "%n", num1, num2);
         System.out.printf("%d / %d = " + divide(num1, num2) + "%n", num1, num2);
+        System.out.println("\n*****\n");
 
 
 //      2 verify input
@@ -22,6 +23,7 @@ public class MethodsExercises {
             System.out.print("Enter a number between 1 and 10: ");
             userInput = getInteger(1, 10);
         } while (userInput == 0);
+        System.out.println("\n*****\n");
 
 
 //      3 factorial
@@ -34,8 +36,9 @@ public class MethodsExercises {
         if (sc.next().equalsIgnoreCase("y")) {
             System.out.println("here");
             long fact = calcFactorial(numFact);
-            System.out.println("The factorial of numFact is: " + fact);
+            System.out.printf("The factorial of %d is: " + fact, numFact);
         }
+        System.out.println("\n\n*****\n");
 
 
 //      4 dice rolling
@@ -53,9 +56,10 @@ public class MethodsExercises {
 
             System.out.print("\nContinue? [y/n] : ");
         } while (sc.next().equalsIgnoreCase("y"));
-
+        System.out.println("\n*****\n");
 
     } // end main
+
 
     // 1 basic arithmetic
     public static int add(int num1, int num2) {
@@ -94,22 +98,20 @@ public class MethodsExercises {
         if (num == 1) {
             return num;
         }
-        num = num * calcFactorial(num - 1);
+        num *= calcFactorial(num - 1);
         return num;
     }
 
 
     // 4 dice rolling
     public static int[] rollDice(int sides) {
+        int min = 1;
 
         int [] rolledArray = new int[sides] ;
         for (int i = 0; i < sides; i++) {
-            rolledArray[i] = (int)(Math.random() * ((sides - 1) + 1)) + 1;
+            rolledArray[i] = (int)(Math.random() * ((sides - min) + 1)) + min;
         }
         return rolledArray;
     }
-
-
-
 
 }
